@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="" id="selProvince">
+        <option value="">----请选择----</option>
+    </select>
+    <select name="" id="selCity">
+        <option value="">----请选择----</option>
+    </select>
+    <select name="" id="selCountry">
+        <option value="">----请选择----</option>
+    </select>
+</body>
+<script src="./jquery-1.11.0.min.js"></script>
+<script>
+    var iNum1;
+    var iNum2;
+    var aProvince = ['广东', '江苏', '安徽'];
+    var aCity = [
+        ['广州', '深圳', '佛山'],
+        ['南京', '无锡', '镇江'],
+        ['合肥', '安庆', '黄山']
+    ];
+    var aCountry = [
+        [
+            ['白云', '黄埔'],
+            ['南山', '宝安'],
+            ['三水', '顺德']
+        ],
+        [
+            ['南京1', '南京2'],
+            ['无锡1', '无锡2'],
+            ['镇江1', '镇江2']
+        ],
+        [
+            ['合肥1', '合肥2'],
+            ['安庆1', '安庆2'],
+            ['黄山1', '黄山2']
+        ]
+    ];
+
+    $(function () {
+        for (var i = 0; i < aProvince.length; i++) {
+            $('#selProvince').append('<option>' + aProvince[i] + '</option>');
+        };
+        $('#selProvince').change(function () {
+            $('#selCity').children().not(':eq(0)').remove();
+            $('#selCountry').children().not(':eq(0)').remove();
+            iNum1 = $(this).children('option:selected').index();
+            var aaCity = aCity[iNum1 - 1];
+            for (var j = 0; j < aaCity.length; j++) {
+                $('#selCity').append('<option>' + aaCity[j] + '</option>');
+            }
+        });
+        $('#selCity').change(function () {
+            $('#selCountry').children().not(':eq(0)').remove();
+            iNum2 = $(this).children('option:selected').index();
+            var aaCountry = aCountry[iNum1 - 1][iNum2 - 1];
+            for (var k = 0; k < aaCountry.length; k++) {
+                $('#selCountry').append('<option>' + aaCountry[k] + '</option>');
+            }
+        })
+    })
+</script>
+
+</html>

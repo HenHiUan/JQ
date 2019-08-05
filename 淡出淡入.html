@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>渐隐渐现</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        #main {
+            width: 80px;
+        }
+
+        #menu {
+            width: 80px;
+            height: 30px;
+            background: red;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            display: none;
+        }
+    </style>
+    <script src="./jquery-1.11.0.min.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <div id="menu"></div>
+        <div id="box"></div>
+    </div>
+    <script>
+        $('#menu').click(function () {
+            // $('#box').slideToggle();
+            $('#box').fadeToggle();
+            // $('#box').toggle();
+        })
+    </script>
+</body>
+
+</html>

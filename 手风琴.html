@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: grey;
+            font-family: Microsoft Yahei;
+            color: white;
+            cursor: pointer;
+        }
+
+        .types a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .types ul {
+            display: none;
+        }
+
+        .files ul {
+            display: none;
+        }
+    </style>
+    <script src="./jquery-1.11.0.min.js"></script>
+</head>
+
+<body>
+    <ul class="files">
+        <li class="file">
+            <span>文件2-1</span>
+            <ul>
+                <li class="document"><a href="#">文档2-1-1</a></li>
+                <li class="document"><a href="#">文档2-1-2</a></li>
+            </ul>
+        </li>
+        <li class="file">
+            <span>文件2-2</span>
+            <ul>
+                <li class="document"><a href="#">菜单2-2-1</a></li>
+                <li class="document"><a href="#">菜单2-2-2</a></li>
+            </ul>
+        </li>
+        <li class="file">
+            <span>文件2-3</span>
+            <ul>
+                <li class="document"><a href="#">菜单2-3-1</a></li>
+                <li class="document"><a href="#">菜单2-3-2</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        //js做折叠面板
+        // var files = document.getElementsByClassName('files')[0];
+        // var btn = files.getElementsByTagName('span');
+        // var box = files.getElementsByTagName('ul')
+        // var num = null;
+        // for (var i = 0; i < btn.length; i++) {
+        //     btn[i].index = i;
+        //     btn[i].isok = false
+        //     btn[i].onclick = function () {
+        //         console.log(123)
+        //         if (this.index === num) {
+        //             this.isok = !this.isok;
+        //         } else {
+        //             num = this.index;
+        //             for (var j = 0; j < btn.length; j++) {
+        //                 btn[j].isok = false
+        //                 box[j].style.display='none'
+        //             }
+        //             this.isok = true
+        //         }
+        //         if (this.isok) {
+        //             box[this.index].style.display = 'block'
+        //         } else {
+        //             box[this.index].style.display = 'none'
+        //         }
+        //     }
+        // }
+        // jq做折叠面板
+        $(function () {
+            $('.files .file').click(function () {
+                $('.files>li').eq($(this).index()).siblings().children().not('span').hide()
+                $('.files ul').eq($(this).index()).toggle()
+            })
+        })
+        // $(function () {
+        //     $('.files').on('click', '.file', function () {
+        //         $('.files>li').eq($(this).index()).siblings().children().not('span').hide()
+        //         $('.files ul').eq($(this).index()).toggle()
+        //     })
+        // })
+    </script>
+</body>
+
+</html>
