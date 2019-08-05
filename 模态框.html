@@ -52,11 +52,18 @@
             width: 50PX;
             text-align: center;
         }
-        #cha{
+
+        #cha {
             position: absolute;
             right: 8px;
             width: 10px;
             height: 10px;
+            cursor: pointer;
+        }
+
+        #time {
+            position: absolute;
+            left: 8px;
             cursor: pointer;
         }
     </style>
@@ -70,6 +77,9 @@
 
             </div>
             <div id="con">
+                <div id="time">
+                    5秒
+                </div>
                 <div id="cha">
                     x
                 </div>
@@ -86,12 +96,12 @@
         var con = document.getElementById('con')
         var btn = document.getElementById('btn')
         var cha = document.getElementById('cha')
-        
-        btn.onclick = function(){
-           dialog.style.display = 'block'
+
+        btn.onclick = function () {
+            dialog.style.display = 'block'
         }
-        
-        cha.onclick = function(){
+
+        cha.onclick = function () {
             dialog.style.display = 'none'
         }
 

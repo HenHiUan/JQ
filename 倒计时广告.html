@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            background: honeydew;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -150px -150px;
+            z-index: 1002;
+            background: url(../img/timg.gif) no-repeat;
+            background-size: 100% 100%;
+        }
+        .tex{
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            font-size: 24px;
+            font-weight: bolder;
+            color: #58bc58;
+        }
+        .time {
+            position: absolute;
+            left: 10px;
+            text-align: center;
+            color:white;
+        }
+
+        .closes {
+            position: absolute;
+            right: 10px;
+            text-align: center;
+            cursor: pointer;
+            color:white;
+        }
+
+        .zhezhao {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">大家好，我是渣渣辉！</h1>
+    <div id="advs">
+        <div class="zhezhao">
+            <div class="box">
+                <p class="tex">是兄弟就来砍我</p>
+                <div class="time">5秒</div>
+                <div class="closes">X</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var advs = document.getElementById('advs');
+        var zhezhao = advs.children[0];
+        var box = zhezhao.children[0];
+        var time = box.children[1]
+        var closes = box.children[2];
+        
+
+        var num = 5;//计数器
+        function times() {
+            num--;//进来自减1
+            if (num < 0) {//当num = 0 时
+                box.style.display = 'none';
+                zhezhao.style.display = 'none';
+                clearInterval(timer);
+            }
+            time.innerHTML = num + '秒'//把num输出到time节点
+        }
+        var timer = setInterval(times, 1000);
+
+        closes.onclick = function () {
+            box.style.display = 'none';
+            zhezhao.style.display = 'none';
+            clearInterval(timer);
+            window.open('http://lanyue.tanwan.com/');
+        } 
+    </script>
+</body>
+
+</html>
